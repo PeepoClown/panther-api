@@ -9,11 +9,15 @@ ext {
     springBootVersion = '2.7.0'
     lombokVersion = '1.18.24'
     javaxValidationVersion = '3.0.2'
+    guavaVersion = '31.1-jre'
+    apacheCommonsVersion = '3.12.0'
+    jacksonVersion = '2.13.3'
 }
 
 subprojects { ->
-    apply plugin: 'java'
     apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'java-library'
     apply plugin: 'io.spring.dependency-management'
 
     group = 'ru.pantherapi'
@@ -32,6 +36,9 @@ subprojects { ->
         dependencies {
             dependency "org.projectlombok:lombok:${lombokVersion}"
             dependency "jakarta.validation:jakarta.validation-api:${javaxValidationVersion}"
+            dependency "com.google.guava:guava:${guavaVersion}"
+            dependency "org.apache.commons:commons-lang3:${apacheCommonsVersion}"
+            dependency "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
         }
     }
 }

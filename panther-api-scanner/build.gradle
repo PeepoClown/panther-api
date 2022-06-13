@@ -1,0 +1,9 @@
+group 'ru.pantherapi.scanner'
+
+dependencies {
+    api project(':panther-api-model')
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.google.guava:guava'
+    implementation 'org.apache.commons:commons-lang3'
+}
