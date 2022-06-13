@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'org.springframework.boot' version '2.7.0' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+ext {
+    springBootVersion = '2.7.0'
+    lombokVersion = '1.18.24'
+    javaxValidationVersion = '3.0.2'
+}
+
+subprojects { ->
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'ru.pantherapi'
+    version = '1.0'
+    sourceCompatibility = 11
+    targetCompatibility = 11
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+        }
+        dependencies {
+            dependency "org.projectlombok:lombok:${lombokVersion}"
+            dependency "jakarta.validation:jakarta.validation-api:${javaxValidationVersion}"
+        }
+    }
+}
