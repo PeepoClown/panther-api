@@ -1,0 +1,23 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+group 'ru.pantherapi.model'
+
+ext {
+    jacksonVersion = '2.13.3'
+    springWebVersion = '5.3.20'
+}
+
+bootJar {
+    enabled = false
+}
+
+dependencies {
+    implementation "org.springframework:spring-web:${springWebVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation 'jakarta.validation:jakarta.validation-api'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
