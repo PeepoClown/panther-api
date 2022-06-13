@@ -1,0 +1,18 @@
+### Project build ###
+target/
+build/
+.gradle
+
+### Caches & logs ###
+.DS_Store
+**/logs/
+**/log/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
