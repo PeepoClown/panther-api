@@ -1,4 +1,4 @@
-package ru.pantherapi.model.artefact;
+package ru.pantherapi.model.artifact;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @Accessors(chain = true)
 @SuppressWarnings("unused")
-public class ApiArtefact
+public class ApiArtifact
         implements Serializable {
     @JsonIgnore
     private static final long serialVersionUID = -5064129843629315510L;

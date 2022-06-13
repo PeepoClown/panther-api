@@ -3,7 +3,7 @@ package ru.pantherapi.scanner.processor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import org.apache.commons.lang3.tuple.ImmutablePair;
-import ru.pantherapi.model.artefact.ApiArtefact;
+import ru.pantherapi.model.artifact.ApiArtifact;
 import ru.pantherapi.model.contract.ApiContract;
 import ru.pantherapi.model.contract.element.ApiContractElement;
 import ru.pantherapi.model.contract.element.ApiContractField;
@@ -43,7 +43,7 @@ import static ru.pantherapi.scanner.annotation.ApiContractInteractionType.PROVID
 public class IndexedApiAnnotationProcessor
         extends AbstractProcessor {
 
-    private static final String INDEXED_API_CONTRACTS_PATH = "META-INF/api/artefact.json";
+    private static final String INDEXED_API_CONTRACTS_PATH = "META-INF/api/artifact.json";
 
     private final ObjectWriter objectWriter = new ObjectMapper()
             .writerWithDefaultPrettyPrinter();
@@ -154,12 +154,12 @@ public class IndexedApiAnnotationProcessor
                     .map(ImmutablePair::getLeft)
                     .collect(toList());
 
-            var artefact = new ApiArtefact()
+            var artifact = new ApiArtifact()
                     .setProvidedContracts(providedContracts)
                     .setAppliedContracts(appliedContracts);
-            var artefactConfigFile = super.processingEnv.getFiler().createResource(CLASS_OUTPUT, "", INDEXED_API_CONTRACTS_PATH);
-            try (var writer = artefactConfigFile.openWriter()) {
-                writer.write(objectWriter.writeValueAsString(artefact));
+            var artifactConfigFile = super.processingEnv.getFiler().createResource(CLASS_OUTPUT, "", INDEXED_API_CONTRACTS_PATH);
+            try (var writer = artifactConfigFile.openWriter()) {
+                writer.write(objectWriter.writeValueAsString(artifact));
             }
         } catch (IOException e) {
             if (!(e instanceof FilerException)) {
