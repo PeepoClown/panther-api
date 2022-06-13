@@ -1,0 +1,25 @@
+group 'ru.pantherapi.analyzer'
+
+ext {
+    jedisVersion = '3.7.0'
+    jsr305Version = '3.0.2'
+}
+
+dependencies {
+    api project(':panther-api-model')
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-neo4j'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    implementation "redis.clients:jedis:${jedisVersion}"
+
+    implementation "com.google.code.findbugs:jsr305:${jsr305Version}"
+    implementation 'org.apache.commons:commons-lang3'
+    implementation 'com.google.guava:guava'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
