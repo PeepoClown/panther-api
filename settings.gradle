@@ -8,3 +8,4 @@ pluginManagement {
 rootProject.name = 'panther-api'
 
 include 'panther-api-model'
+include 'panther-api-scanner'
